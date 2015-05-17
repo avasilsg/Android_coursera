@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">NoteTake</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_">Title:</string>
+    <string name="title_activity_list_notes_activity">List Notes</string>
+    <string name="add_note">Add Note</string>
+
+</resources>

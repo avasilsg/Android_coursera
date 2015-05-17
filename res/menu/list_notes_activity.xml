@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.notetake.List_notes_activity" >
+    <item android:id="@+id/addNote" 
+        android:showAsAction="always|withText" 
+        android:title="@string/add_note" android:visible="true" android:orderInCategory="100"/>
+
+</menu>
