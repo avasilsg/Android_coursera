@@ -1,7 +1,13 @@
 package com.example.notetake;
 
-public class Note {
+import java.io.Serializable;
+
+public class Note implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2616987622312306206L;
 	public Note() {}
 	public Note(String title, String note, String dateTime) {
 		this.title = title;

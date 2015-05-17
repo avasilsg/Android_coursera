@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -23,22 +24,22 @@ public class EditNoteActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_note);
         
+		final EditText titleEditText = (EditText)findViewById(R.id.titleTextView);
+		final EditText noteEditText = (EditText)findViewById(R.id.noteTextView);
         final Button saveButton = (Button)findViewById(R.id.saveButton);
         saveButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
-			public void onClick(View v) {
-				EditText titleEditText = (EditText)findViewById(R.id.titleTextView);
-				EditText noteEditText = (EditText)findViewById(R.id.noteTextView);
-				
+			public void onClick(View v) {				
 				if(isInEditMode)
 				{
-					isInEditMode = false;
-					saveButton.setText("Edit");
-					TextView dateTextView = (TextView)findViewById(R.id.dateTextView);
-					DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-					String date = dateFormat.format(Calendar.getInstance().getTime());
-					dateTextView.setText(date);
+					Intent resultIntent = new Intent();
+					Note note = new Note(titleEditText.getText().toString(), 
+										 noteEditText.getText().toString(), 
+										 Calendar.getInstance().getTime().toString());
+					resultIntent.putExtra("Note", note);
+					setResult(RESULT_OK, resultIntent);
+					finish(); 
 				}
 				else
 				{

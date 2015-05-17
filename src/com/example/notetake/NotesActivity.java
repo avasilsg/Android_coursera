@@ -11,12 +11,13 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class List_notes_activity extends Activity {
+public class NotesActivity extends Activity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		Intent editNodeIntent = new Intent(this, EditNoteActivity.class);
 		startActivity(editNodeIntent);
+		startActivityForResult(editNodeIntent, 1);
 //		notesList.add(new Note("Title", "Meghan Trainor", "12/12/15"));
 //		populateList();
 		return true;
