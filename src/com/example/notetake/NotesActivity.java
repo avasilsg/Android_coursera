@@ -1,5 +1,6 @@
 package com.example.notetake;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,6 +45,18 @@ public class NotesActivity extends Activity {
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.activity_list_item, android.R.id.text1, values);
 		
 		notes.setAdapter(adapter);
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (null != data) {
+			Serializable extract = (Serializable) data;
+			if (null != extract) {
+				Note note = (Note)extract;
+				notesList.add(note);
+				populateList();
+			}
+		}
 	}
 
 	@Override
